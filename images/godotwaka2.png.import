@@ -2,12 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b65ojr5x8vssg"
+uid="uid://cxxglmfis6c04"
 valid=false
 
 [deps]
 
-source_file="res://icon.svg"
+source_file="res://images/godotwaka2.png"
 
 [params]
 
@@ -28,6 +28,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

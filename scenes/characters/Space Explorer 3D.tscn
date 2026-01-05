@@ -1,0 +1,108 @@
+[gd_scene load_steps=15 format=3 uid="uid://cxo3f8xtrj8sy"]
+
+[ext_resource type="Script" path="res://scripts/characters/space_explorer_3d.gd" id="1_poywn"]
+[ext_resource type="Texture2D" uid="uid://oi2o2x86ems1" path="res://assets/characters/astronaut/astronaut-idle.png" id="1_w07vp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mst4"]
+atlas = ExtResource("1_w07vp")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sncm4"]
+atlas = ExtResource("1_w07vp")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghoc6"]
+atlas = ExtResource("1_w07vp")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wb58h"]
+atlas = ExtResource("1_w07vp")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1j1yy"]
+atlas = ExtResource("1_w07vp")
+region = Rect2(0, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0ca3"]
+atlas = ExtResource("1_w07vp")
+region = Rect2(96, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5q5f"]
+atlas = ExtResource("1_w07vp")
+region = Rect2(192, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4iyka"]
+atlas = ExtResource("1_w07vp")
+region = Rect2(288, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hw3bw"]
+atlas = ExtResource("1_w07vp")
+region = Rect2(0, 192, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vgj8"]
+atlas = ExtResource("1_w07vp")
+region = Rect2(96, 192, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1qjkk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6mst4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sncm4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghoc6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wb58h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1j1yy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0ca3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5q5f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4iyka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hw3bw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vgj8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u3gi3"]
+radius = 0.357271
+height = 1.69837
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_poywn")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.479907, 0)
+pixel_size = 0.02
+sprite_frames = SubResource("SpriteFrames_1qjkk")
+animation = &"idle"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.380817, 0)
+shape = SubResource("CapsuleShape3D_u3gi3")
+
+[node name="CameraController" type="Node3D" parent="."]
+top_level = true
+
+[node name="CameraTarget" type="Node3D" parent="CameraController"]
+transform = Transform3D(1, 0, 0, 0, 0.998479, 0.0551245, 0, -0.0551245, 0.998479, 0, 0.845996, 2.27311)
+
+[node name="Camera3D" type="Camera3D" parent="CameraController/CameraTarget"]
+transform = Transform3D(1, 0, 0, 0, 0.966578, 0.256374, 0, -0.256374, 0.966578, 0, 0.208544, 1.44866)

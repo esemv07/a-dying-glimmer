@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="A Dying Glimmer"
+run/main_scene="res://scenes/planet/Main Planet.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
 [rendering]
 
