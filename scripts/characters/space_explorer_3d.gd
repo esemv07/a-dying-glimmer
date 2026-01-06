@@ -29,3 +29,13 @@ func _physics_process(delta: float) -> void:
 		animation.play("idle")
 
 	move_and_slide()
+	
+	
+	
+	### SMOOTH CAMERA MOVEMENT ###
+	
+	var camera_position = $CameraController.position
+	camera_position.x = lerp(camera_position.x, position.x, 0.1)
+	camera_position.y = lerp(camera_position.y, position.y, 0.1)
+	camera_position.z = lerp(camera_position.z, position.z, 0.1)
+	$CameraController.position = camera_position

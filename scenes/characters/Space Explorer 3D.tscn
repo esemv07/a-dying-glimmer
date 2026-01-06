@@ -89,13 +89,13 @@ height = 1.69837
 script = ExtResource("1_poywn")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.479907, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.959793, 0)
 pixel_size = 0.02
 sprite_frames = SubResource("SpriteFrames_1qjkk")
 animation = &"idle"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.380817, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.860703, 0)
 shape = SubResource("CapsuleShape3D_u3gi3")
 
 [node name="CameraController" type="Node3D" parent="."]
