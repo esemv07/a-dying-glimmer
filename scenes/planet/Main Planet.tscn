@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgm0xvsqenwaq"]
+[gd_scene load_steps=6 format=3 uid="uid://bgm0xvsqenwaq"]
 
 [ext_resource type="PackedScene" uid="uid://cxo3f8xtrj8sy" path="res://scenes/characters/Space Explorer 3D.tscn" id="1_lqcqf"]
+[ext_resource type="MeshLibrary" uid="uid://d0x8woc7fmg1n" path="res://assets/terrain/Grass Blocks.tres" id="2_oi0jl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tma7q"]
 sky_top_color = Color(0.185521, 0.518595, 0.412527, 1)
@@ -15,12 +16,6 @@ background_mode = 2
 sky = SubResource("Sky_33ve6")
 tonemap_mode = 2
 
-[sub_resource type="BoxMesh" id="BoxMesh_o4mrl"]
-size = Vector3(10, 0.1, 10)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_4ppbl"]
-size = Vector3(10, 0.1, 10)
-
 [node name="Node3D" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -33,11 +28,9 @@ environment = SubResource("Environment_2lpvf")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_lqcqf")]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
-mesh = SubResource("BoxMesh_o4mrl")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
-shape = SubResource("BoxShape3D_4ppbl")
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+mesh_library = ExtResource("2_oi0jl")
+data = {
+"cells": PackedInt32Array(0, 0, 65536, 0, 65535, 65536, 0, 1, 65536, 65535, 1, 65536, 65535, 0, 65536, 65535, 65535, 65536, 65534, 65535, 65536, 65534, 0, 65538, 65534, 1, 851971, 65535, 2, 65539, 0, 2, 65539, 1, 1, 327683, 1, 0, 327683, 1, 65535, 327683, 0, 65534, 589827, 65535, 65534, 589827, 65534, 65534, 589827, 65533, 65535, 851971)
+}

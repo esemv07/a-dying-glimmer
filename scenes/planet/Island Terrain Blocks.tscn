@@ -1,17 +1,71 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjftk3xebfn52"]
+[gd_scene load_steps=11 format=3 uid="uid://cjftk3xebfn52"]
 
+[ext_resource type="Texture2D" uid="uid://ddnofgsg8wulr" path="res://assets/terrain/grass-2.png" id="1_2mtji"]
 [ext_resource type="Texture2D" uid="uid://dadc4wl6vlmy4" path="res://assets/terrain/grass-1.png" id="1_72yuw"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bc6u1"]
-albedo_texture = ExtResource("1_72yuw")
+[ext_resource type="Texture2D" uid="uid://bl205wwwmp1xo" path="res://assets/terrain/grass-3.png" id="3_3lpg6"]
+[ext_resource type="Texture2D" uid="uid://cgrgkrxp1dnso" path="res://assets/terrain/grass-4.png" id="4_yvbr4"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_51vlt"]
 lightmap_size_hint = Vector2i(24, 36)
-material = SubResource("StandardMaterial3D_bc6u1")
 size = Vector3(2, 2, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fx33k"]
+albedo_texture = ExtResource("1_72yuw")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d33ym"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xs0l"]
+albedo_texture = ExtResource("1_2mtji")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h216v"]
+albedo_texture = ExtResource("3_3lpg6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ckh83"]
+albedo_texture = ExtResource("4_yvbr4")
 
 [node name="Node3D" type="Node3D"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="grass-1" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_51vlt")
+surface_material_override/0 = SubResource("StandardMaterial3D_fx33k")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="grass-1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grass-1/StaticBody3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_d33ym")
+
+[node name="grass-2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -3, -1.31134e-07, 0)
+mesh = SubResource("BoxMesh_51vlt")
+skeleton = NodePath("../grass-1")
+surface_material_override/0 = SubResource("StandardMaterial3D_0xs0l")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="grass-2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grass-2/StaticBody3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_d33ym")
+
+[node name="grass-3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -6, 0, 0)
+mesh = SubResource("BoxMesh_51vlt")
+surface_material_override/0 = SubResource("StandardMaterial3D_h216v")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="grass-3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grass-3/StaticBody3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_d33ym")
+
+[node name="grass-4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9, 0, 0)
+mesh = SubResource("BoxMesh_51vlt")
+surface_material_override/0 = SubResource("StandardMaterial3D_ckh83")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="grass-4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grass-4/StaticBody3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_d33ym")
